@@ -1,0 +1,15 @@
+#lang racket
+; Это составное выражение управляет операндами.
+; Если b > 0, то выбирается операнд "+", иначе "-".
+(define (a-plus-abs-b a b)
+    ((if (> b 0) + -) a b))
+
+; Пример 1
+(define a -4)
+(define b -4)
+(a-plus-abs-b a b)
+
+; Пример 2
+(define c 4)
+(define d 4)
+(a-plus-abs-b c d)
