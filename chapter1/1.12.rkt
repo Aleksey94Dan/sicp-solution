@@ -1,0 +1,20 @@
+#lang racket
+(define (pascal-triangle m n)
+  (cond
+    ((= n 0) 0)
+    ((= n m) 1)
+    ((> n m) "Error")
+    (else (+ (pascal-triangle (- m 1) n) (pascal-triangle (- m 1) (- n 1))))))
+
+;(check-equal? (pascal-triangle 1 1) 1)
+;(check-equal? (pascal-triangle 2 2) 1)
+;(check-equal? (pascal-triangle 3 2) 2)
+;(check-equal? (pascal-triangle 4 2) 3)
+;(check-equal? (pascal-triangle 5 2) 4)
+;(check-equal? (pascal-triangle 5 3) 6)
+(pascal-triangle 1 1)
+(pascal-triangle 2 2)
+(pascal-triangle 3 2)
+(pascal-triangle 4 2)
+(pascal-triangle 5 2)
+(pascal-triangle 5 3)
