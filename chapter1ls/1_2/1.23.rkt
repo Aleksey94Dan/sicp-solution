@@ -49,7 +49,7 @@
 
 
 ;без процедуры next
-;(search-for-primes 1000 3)
+(search-for-primes 1000 3)
 ;1009 *** 35
 ;1013 *** 4
 ;1019 *** 4

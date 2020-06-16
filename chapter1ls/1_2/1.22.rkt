@@ -43,7 +43,7 @@
               (search-for-primes (+ start-number 1) (- end-number 1)))
           (search-for-primes (+ start-number 1) end-number))))
 
-;(search-for-primes 1000 3)
+; (search-for-primes 1000 12)
 ;1009 *** 35
 ;1013 *** 4
 ;1019 *** 4
@@ -58,7 +58,20 @@
 ; 100019 *** 28
 ; 100043 *** 28
 
-; (search-for-primes 1000000 3)
+; (search-for-primes 1000000 12)
 ; 1000003 *** 55
 ; 1000033 *** 27
 ; 1000037 *** 18
+
+(search-for-primes 1000 2)
+(search-for-primes 10000 2)
+(search-for-primes 100000 2)
+(search-for-primes 1000000 2)
+(search-for-primes 10000000 2)
+(search-for-primes 100000000 2)
+(search-for-primes 1000000000 2)
+(search-for-primes 10000000000 2)
+(search-for-primes 100000000000 2)
+(search-for-primes 1000000000000 2)
+(search-for-primes 10000000000000 2)
+(search-for-primes 100000000000000 2)
