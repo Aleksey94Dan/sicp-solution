@@ -91,3 +91,35 @@
 (display "(sum-cubes 1 5)\n")
 (sum-cubes 1 5)
 (display "\n")
+
+
+;для ряда лейбница;
+;создадим term
+(define (pi-term x)
+  (/ 1.0 (* x (+ x 2))))
+;создадим next
+(define (pi-next x)
+  (+ x 4))
+;используем шаблон
+(define (pi-sum a b)
+  (sum pi-term a pi-next b))
+(display "(sum pi-sum 1 5)\n")
+(pi-sum 1 5)
+(display "\n")
+
+;используем "сигма-запись" для вычисления определенного интеграллаы численным методом
+;будем использовать блочную структуру
+(define (integral f a b dx)
+  ;запишем next
+  (define (add-dx x) (+ x dx))
+  ; f - есть term
+  (* (sum f (+ a (/ dx 2)) add-dx b) dx))
+
+(display "(integral cube 0 1 0.01)\n")
+(integral cube 0 1 0.01)
+(display "\n")
+
+
+(display "(integral cube 0 1 0.001)\n")
+(integral cube 0 1 0.001)
+(display "\n")
