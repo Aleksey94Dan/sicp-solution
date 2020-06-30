@@ -18,25 +18,19 @@
 (define (smooth f)
   (define dx 0.00001)
   (lambda (x)
-    (/ (+
+    (/ 3
+       (+
         (f (- x dx))
         (f x)
         (f (+ x dx))
         )
-       3
        )
     )
   )
 
 
-(check-equal? ((smooth square) 2) 4.000000000066667)
-(check-equal? ((smooth inc) 2)  3.0)
-
 
 (define (n-fold-smoothoed-function f n)
-  ((repeated smooth n) f))
-
-((n-fold-smoothoed-function inc 8) 3)
-((n-fold-smoothoed-function square 8) 3)
+  (repeated f n))
 
 
