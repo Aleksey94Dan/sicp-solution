@@ -74,7 +74,10 @@
 ;(pow-root 81 9)
 ;(pow-root 81 4)
 
-; Перепишем pow-rot с использованием repeated
-(define (pow-root-fix x n repeat)
-  (fixed-point (repeated (average-damp (lambda (y) (/ x (fast-expt y (- n 1))))) repeat) 1.0))
-(pow-root-fix 27 3 6)
+; Перепишем pow-rot с использованием repeated и задимся кол-во повторов как x = log2n
+(define (pow-root-fix x n)
+   (define (count-repeat n)
+    (floor (log n 2)))
+  (fixed-point (repeated (average-damp (lambda (y) (/ x (fast-expt y (- n 1))))) (count-repeat n)) 1.0))
+
+(pow-root-fix 81 16)
