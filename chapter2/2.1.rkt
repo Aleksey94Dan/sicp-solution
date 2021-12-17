@@ -15,13 +15,17 @@
 
 (define (denom x) (cdr x))
 
+(define (norm-rat n d)
+  (let ((g (gcd n d)))
+    (cons (/ n g) (/ d g))))
 
 (define (make-rat n d)
-  (cond ((and (> n 0) (> d 0)) (cons n d))
-        ((and (< n 0) (< d 0)) (cons (* -1 n) (* -1 d)))
-        ((< n 0) (cons n d))
-        ((< d 0) (cons (* -1 n) (* -1 d)))
+  (cond ((and (> n 0) (> d 0)) (norm-rat n d))
+        ((and (< n 0) (< d 0)) (norm-rat (* -1 n) (* -1 d)))
+        ((< n 0) (norm-rat n d))
+        ((< d 0) (norm-rat (* -1 n) (* -1 d)))
         (else 0)))
+))
 
 
 (define (mul-rat x y)
@@ -30,9 +34,11 @@
 
 
 (check-equal? (make-rat 1 2) (cons 1 2))
+(check-equal? (make-rat 2 4) (cons 1 2))
 (check-equal? (make-rat -1 -2) (cons 1 2))
-(check-equal? (make-rat -1 2) (cons -1 2))
+(check-equal? (make-rat -2 4) (cons -1 2))
 (check-equal? (make-rat 1 -2) (cons -1 2))
+(check-equal? (make-rat 1 1) (cons 1 1))
 
 
 (define minus-one-half (make-rat 1 -2))
